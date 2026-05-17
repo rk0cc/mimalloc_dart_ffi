@@ -2,6 +2,9 @@ name: mimalloc_ffi
 description: Dart ported well-performed and compact general memory allocator with replication of ffi package
 repository: https://github.com/rk0cc/mimalloc_dart_ffi
 version: 1.0.0
+topics:
+  - ffi
+  - interop
 environment: 
   sdk: ^3.10.0
 dependencies:
