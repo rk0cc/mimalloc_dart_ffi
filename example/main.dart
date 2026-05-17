@@ -38,6 +38,7 @@ void main(List<String> args) {
   while (charPtr[utf8Len] != 0) {
     utf8Code.add(charPtr[utf8Len++]);
   }
+  utf8Code.add(0); // Intentionally append null-terminated
 
   print("UTF-8 sequence: ${utf8Code.map(_toFormattedHexString)}");
   print("String from pointer: ${charPtr.cast<Utf8>().toDartString()}");
