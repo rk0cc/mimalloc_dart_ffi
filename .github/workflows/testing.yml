@@ -1,0 +1,37 @@
+name: Testing
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .gitmodules
+      - lib/**.dart
+      - hook/build.dart
+      - test/**.dart
+      - .github/workflows/testing.yml
+jobs:
+  allocate:
+    name: Allocation test
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - "windows-latest"
+          - "windows-11-arm"
+          - "macos-latest"
+          - "ubuntu-latest"
+          - "ubuntu-24.04-arm"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - name: Get dependencies
+        run: dart pub get
+      - name: Run test
+        run: dart test
