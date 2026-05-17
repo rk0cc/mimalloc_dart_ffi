@@ -9,6 +9,7 @@ void main(List<String> args) async {
     }
 
     final bool winBuild = input.config.code.targetOS == OS.windows;
+    const List<String> winBuildFlag = ["/nologo", "Advapi32.lib"];
 
     final builder = CBuilder.library(
       name: "mimalloc",
@@ -16,7 +17,7 @@ void main(List<String> args) async {
       sources: const <String>["mimalloc/src/static.c"],
       includes: const <String>["mimalloc/include"],
       std: "c11",
-      flags: ["/nologo", "Advapi32.lib"],
+      flags: [if (winBuild) ...winBuildFlag],
       defines: <String, String?>{
         "MI_SHARED_LIB": null,
         "MI_SHARED_LIB_EXPORT": null,
