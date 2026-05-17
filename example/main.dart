@@ -8,6 +8,9 @@ import 'package:ffi/ffi.dart'
         CallocAllocator; // Hide default allocators if concerned about wrongfully uses.
 import 'package:mimalloc_ffi/mimalloc_ffi.dart';
 
+String _toFormattedHexString(int code) =>
+    '0x${code.toRadixString(16).toUpperCase().padLeft(2, '0')}';
+
 void main(List<String> args) {
   // Simple allocation
   const List<int> dialCode = [9, 1, 3];
@@ -24,12 +27,20 @@ void main(List<String> args) {
 
   // Parse Dart string to native char sequence
   final str = "変身";
-  final charPtr = str.toNativeUtf8(
-    allocator: miMalloc,
-  ); // Specify allocator to miMalloc instead of default malloc.
+  final charPtr = str
+      .toNativeUtf8(allocator: miMalloc)
+      .cast<
+        ffi.Uint8
+      >(); // Specify allocator to miMalloc instead of default malloc.
 
-  print("First byte is: ${charPtr.cast<ffi.Uint8>().value}");
-  print("String from pointer: ${charPtr.toDartString()}");
+  List<int> utf8Code = [];
+  int utf8Len = 0;
+  while (charPtr[utf8Len] != 0) {
+    utf8Code.add(charPtr[utf8Len++]);
+  }
+
+  print("UTF-8 sequence: ${utf8Code.map(_toFormattedHexString)}");
+  print("String from pointer: ${charPtr.cast<Utf8>().toDartString()}");
 
   miMalloc.free(
     charPtr,
