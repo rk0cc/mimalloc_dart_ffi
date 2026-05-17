@@ -1,0 +1,20 @@
+# All mimalloc submodules with unnecessary configurations
+mimalloc/azure-pipelines.yml
+mimalloc/bin/
+mimalloc/cmake/
+mimalloc/contrib/
+mimalloc/doc/
+mimalloc/docs/
+mimalloc/ide/
+mimalloc/test/
+mimalloc/CMakeLists.txt
+mimalloc/LICENSE
+mimalloc/readme.md
+mimalloc/SECURITY.md
+mimalloc/mimalloc.pc.in
+
+# Ignore development tools
+tool/
+
+# Ignore version control
+.gitmodules
