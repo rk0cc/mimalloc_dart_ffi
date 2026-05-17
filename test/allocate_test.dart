@@ -1,6 +1,6 @@
 import 'dart:ffi' as ffi;
 
-import 'package:mimalloc_ffi/src/allocator.dart';
+import 'package:mimalloc_ffi/mimalloc_ffi.dart';
 import 'package:test/test.dart';
 
 void main() {
