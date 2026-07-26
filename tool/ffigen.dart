@@ -27,6 +27,7 @@ void main(List<String> args) {
       entryPoints: [mimallocInclude.resolve("mimalloc.h")],
       compilerOptions: ["-Imimalloc/include"],
     ),
+    // Specify three functions, which offers identical features in `ffi` package.
     functions: Functions.includeSet(const <String>{
       "mi_malloc",
       "mi_calloc",
