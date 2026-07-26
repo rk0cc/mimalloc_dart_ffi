@@ -9,7 +9,12 @@ void main(List<String> args) async {
     }
 
     final bool winBuild = input.config.code.targetOS == OS.windows;
-    const List<String> winBuildFlag = ["/nologo", "Advapi32.lib"];
+
+    // Visual C++ compile flag for Windows platform
+    const List<String> winBuildFlag = [
+      "/nologo",
+      "Advapi32.lib"
+    ];
 
     final builder = CBuilder.library(
       name: "mimalloc",
@@ -19,8 +24,10 @@ void main(List<String> args) async {
       std: "c11",
       flags: [if (winBuild) ...winBuildFlag],
       defines: <String, String?>{
+        // Indicate it compiles as dedicated dynamic library
         "MI_SHARED_LIB": null,
         "MI_SHARED_LIB_EXPORT": null,
+        // Define it to stop hijacking original allocator in Windows
         if (winBuild) ...{"MI_WIN_NOREDIRECT": null},
       },
     );

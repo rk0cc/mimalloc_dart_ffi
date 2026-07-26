@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Bump and promote mimalloc version to `v3.4.3`
+
 ## 1.0.1
 
 * Expand `hooks` version constraints due to new major release
