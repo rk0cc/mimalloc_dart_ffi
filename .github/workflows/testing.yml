@@ -9,6 +9,7 @@ on:
       - hook/build.dart
       - test/**.dart
       - .github/workflows/testing.yml
+  workflow_dispatch:
 jobs:
   allocate:
     name: Allocation test
