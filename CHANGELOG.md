@@ -1,3 +1,8 @@
+## 1.0.3
+
+* Bump `mimalloc` to `v3.5.1`
+* Expand dependencies version constraints
+
 ## 1.0.2
 
 * Bump and promote mimalloc version to `v3.4.3`
