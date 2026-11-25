@@ -9,6 +9,7 @@ on:
       - hook/build.dart
       - test/**.dart
       - .github/workflows/testing.yml
+      - pubspec.yaml
   workflow_dispatch:
 jobs:
   allocate:
