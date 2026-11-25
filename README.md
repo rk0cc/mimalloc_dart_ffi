@@ -1,6 +1,6 @@
 # Bring excellent performance of dynamic memory allocation library into Dart
 
-mimalloc is developed by Daan Leijen with significant improvment of efficiency in comparison with default allocator from the systems. This is a Dart ported package by usign [`ffigen`](https://pub.dev/packages/ffigen) and [hooks](https://dart.dev/tools/hooks) approach to compile mimalloc v3 from [Git repository](https://github.com/microsoft/mimalloc) and replicate `malloc` and `calloc` features from [`ffi` package](https://pub.dev/packages/ffi).
+mimalloc is developed by Daan Leijen with significant improvment of efficiency in comparison with default allocator from the systems. This is a Dart ported package by usign [`ffigen`](https://pub.dev/packages/ffigen) and [hooks](https://dart.dev/tools/hooks) approach to compile mimalloc v3 from [Git repository](https://github.com/microsoft/mimalloc) as well as replicate `malloc` and `calloc` features from [`ffi` package](https://pub.dev/packages/ffi).
 
 **REMARK 1: This package aims to deliver an alternative option of dynamic memory allocation without overriding original allocator.**
 
