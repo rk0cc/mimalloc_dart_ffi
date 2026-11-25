@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Bump `mimalloc` to `v3.6.1`
+
 ## 1.0.3
 
 * Bump `mimalloc` to `v3.5.1`
