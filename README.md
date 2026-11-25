@@ -24,7 +24,7 @@ mimalloc is developed by Daan Leijen with significant improvment of efficiency i
             MallocAllocator,
             CallocAllocator;
     ```
-1. (Only appliable when using APIs from `ffi` packages) Ensure optional arguement `wrappedAllocator` is specified to either `miMalloc` or `miCalloc`:
+1. (Only appliable when using APIs from `ffi` packages) Ensure either optional arguement `wrappedAllocator` or named arguement `allocator` is specified to either `miMalloc` or `miCalloc`:
     ```dart
     import "dart:ffi" as ffi;
 
